@@ -13,6 +13,8 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -27,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        deleteDatabase("nhs10627db");
+//        deleteDatabase("nhs10627db");
 
         sql_title = findViewById(R.id.title);
-        Button add_button = findViewById(R.id.add_button);
+        FloatingActionButton add_button = findViewById(R.id.add_button);
 
 
         ArrayList<HashMap<String, String >> data = new ArrayList<>();
@@ -76,10 +78,7 @@ public class MainActivity extends AppCompatActivity {
         }));
 
         add_button.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MemoPadActivity.class);
-            intent.putExtra("id", "");
-            intent.putExtra("title", "");
-            intent.putExtra("memo", "");
+            Intent intent = new Intent(this, AddMemoPadActivity.class);
             startActivity(intent);
         });
     }
